@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/mainLabel"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/design_default_color_primary"
+        android:text="BLE modbus scaner"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/connLayut"
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/mainLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView_ConnState"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/macSpiner"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text=" Не подключено" />
+
+        <Button
+            android:id="@+id/button_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/macSpiner"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/button_disconect"
+            android:text="conn"
+        />
+
+
+        <Button
+            android:id="@+id/button_disconect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/macSpiner"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/textView_ConnState"
+            android:text="close"
+            />
+
+        <Spinner
+            android:id="@+id/macSpiner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp" />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/response_Layout"
+        android:layout_width="409dp"
+        android:layout_height="350dp"
+        app:layout_constraintTop_toBottomOf="@+id/connLayut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView_Response"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:textSize="18dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+        <TextView
+            android:id="@+id/textView_RespData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="80dp"
+            android:text="---"
+            android:textColor="@color/red"
+            android:textSize="48dp"
+            android:layout_alignTop="@+id/textView_Response"
+        />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/command_Layout"
+        android:layout_width="409dp"
+        android:layout_height="250dp"
+        android:background = "@color/design_default_color_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/button_send"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/editTextCommand"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/editTextCommand"
+            android:text="Send" />
+
+        <Button
+            android:id="@+id/button_cycle"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/button_send"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/button_send"
+            android:text="Cycle" />
+
+        <TextView
+            android:id="@+id/textViewAddr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextCommand"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Addres"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRegNumber"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:layout_alignTop="@+id/textViewAddr"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/textViewAddr"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textViewRegCont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/editTextRegNumber"
+            android:layout_alignTop="@+id/textViewAddr"
+            android:layout_marginStart="20dp"
+            android:text="Reg count" />
+
+        <Spinner
+            android:id="@+id/regcountSpiner"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/textViewRegCont"
+            android:layout_alignTop="@+id/textViewRegCont"
+            android:layout_marginStart="20dp"
+        />
+
+        <EditText
+            android:id="@+id/editTextCommand"
+            android:layout_width="200dp"
+            android:layout_height="67dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+        />
+
+        <TextView
+            android:id="@+id/textViewData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAddr"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:text="Data"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextData"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:layout_alignTop="@+id/textViewData"
+            android:layout_marginStart="40dp"
+            android:layout_toEndOf="@+id/textViewData"
+            android:ems="10"
+            android:inputType="number"
+        />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
